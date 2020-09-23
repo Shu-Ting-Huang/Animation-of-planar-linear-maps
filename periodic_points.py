@@ -22,39 +22,39 @@ B=A-Matrix.eye(2)
 B_inv=B.inv()
 
 
-(x1,y1)=(50,400)
-(x2,y2)=(800,400)
+(x1,y1)=(250,250)
+(x2,y2)=(950,250)
 unit=50
-N=7.5 #number of units shown on coordinate axes
+N=4.5 #how far we go away from origin, both vertically and horizontally
 
 
 #draw x-axis in plane 1
-my_canvas.create_line(x1,y1, x1+N*unit,y1, arrow=LAST,width=1.5)
+my_canvas.create_line(x1-N*unit,y1, x1+N*unit,y1, arrow=LAST,width=1.5)
 
 #draw y-axis in plane 1
-my_canvas.create_line(x1,y1, x1,y1-N*unit, arrow=LAST,width=1.5)
+my_canvas.create_line(x1,y1+N*unit, x1,y1-N*unit, arrow=LAST,width=1.5)
 
 #draw vertical coordinate grid lines in plane 1
-for i in range(1,floor(N)+1):
-    my_canvas.create_line(x1+i*unit,y1, x1+i*unit,y1-N*unit,fill="gray")
+for i in range(-floor(N),floor(N)+1):
+    my_canvas.create_line(x1+i*unit,y1+N*unit, x1+i*unit,y1-N*unit,fill="gray")
 
 #draw horizontal coordinate grid lines in plane 1
-for j in range(1,floor(N)+1):
-    my_canvas.create_line(x1,y1-j*unit, x1+N*unit,y1-j*unit,fill="gray")
+for j in range(-floor(N),floor(N)+1):
+    my_canvas.create_line(x1-N*unit,y1-j*unit, x1+N*unit,y1-j*unit,fill="gray")
 
 #draw x-axis in plane 2
-my_canvas.create_line(x2,y2, x2+N*unit,y2, arrow=LAST,width=1.5)
+my_canvas.create_line(x2-N*unit,y2, x2+N*unit,y2, arrow=LAST,width=1.5)
 
 #draw y-axis in plane 2
-my_canvas.create_line(x2,y2, x2,y2-N*unit, arrow=LAST,width=1.5)
+my_canvas.create_line(x2,y2+N*unit, x2,y2-N*unit, arrow=LAST,width=1.5)
 
 #draw vertical coordinate grid lines in plane 2
-for i in range(1,floor(N)+1):
-    my_canvas.create_line(x2+i*unit,y2, x2+i*unit,y2-N*unit,fill="gray")
+for i in range(-floor(N),floor(N)+1):
+    my_canvas.create_line(x2+i*unit,y2+N*unit, x2+i*unit,y2-N*unit,fill="gray")
 
 #draw horizontal coordinate grid lines in plane 2
-for j in range(1,floor(N)+1):
-    my_canvas.create_line(x2,y2-j*unit, x2+N*unit,y2-j*unit,fill="gray")
+for j in range(-floor(N),floor(N)+1):
+    my_canvas.create_line(x2-N*unit,y2-j*unit, x2+N*unit,y2-j*unit,fill="gray")
 
 #draw e_x in plane 1
 my_canvas.create_line(x1,y1, x1+unit,y1, arrow=LAST,arrowshape=(8,10,6),\
