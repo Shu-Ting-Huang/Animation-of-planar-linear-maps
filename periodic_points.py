@@ -17,7 +17,9 @@ my_canvas = Canvas(root,width=w,height=h,bg="white")
 my_canvas.pack(pady=20)
 
 
-A=Matrix([[3,1],[1,1]])
+A=Matrix([[2,2],\
+          [1,-2]])
+
 B=A-Matrix.eye(2)
 B_inv=B.inv()
 
@@ -113,8 +115,8 @@ def move_Bv(e):
     global img1
     img1=PhotoImage(file="v_trans.png")
     
-    my_image2=my_canvas.create_image(x1+B_inv[0,0]*(e.x-x2)+B_inv[0,1]*(-e.y+y2),\
-                                     y1-B_inv[1,0]*(e.x-x2)-B_inv[1,1]*(-e.y+y2),\
+    my_image2=my_canvas.create_image(int(x1+B_inv[0,0]*(e.x-x2)+B_inv[0,1]*(-e.y+y2)),\
+                                     int(y1-B_inv[1,0]*(e.x-x2)-B_inv[1,1]*(-e.y+y2)),\
                                      image=img1)
 
 
