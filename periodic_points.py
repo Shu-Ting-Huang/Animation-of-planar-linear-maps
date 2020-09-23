@@ -120,6 +120,12 @@ def move_Bv(e):
 
     my_label.config(text="Coordinates: ("+str(e.x)+","+str(e.y)+")")
 
+def move(e):
+    if e.x>w//2:
+        move_Bv(e)
+    else:
+        move_v(e)
+
 def show_coord(e):
     my_label.config(text="Coordinates: ("+str(e.x)+","+str(e.y)+")")
     
@@ -128,7 +134,7 @@ my_label = Label(root,text="")
 my_label.pack(pady=20)
 
 
-my_canvas.bind("<B1-Motion>",move_Bv)
+my_canvas.bind("<B1-Motion>",move)
 my_canvas.bind("<Motion>",show_coord)
 
 root.mainloop()
