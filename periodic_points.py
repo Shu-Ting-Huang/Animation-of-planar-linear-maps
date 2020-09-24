@@ -27,6 +27,7 @@ B=Matrix([[1,1],\
 
 draw_chessboard=False
 B_colored=False
+show_parallelograms=True
 show_cursor_coord=False
 
 B_inv=B.inv()
@@ -69,6 +70,9 @@ B_img=PhotoImage(file="matrix_B-1.png")
 my_canvas.create_image(int((x1+x2)/2),h//4,image=B_img)
 os.remove("matrix_B-1.png")
 
+#draw unit square in plane 1
+if show_parallelograms==True:
+    my_canvas.create_rectangle(x1,y1-unit,x1+unit,y1,fill="orange",outline="orange")
 
 #draw x-axis in plane 1
 my_canvas.create_line(x1-N*unit,y1, x1+N*unit,y1, arrow=LAST,width=1.5)
@@ -83,6 +87,12 @@ for i in range(-floor(N),floor(N)+1):
 #draw horizontal coordinate grid lines in plane 1
 for j in range(-floor(N),floor(N)+1):
     my_canvas.create_line(x1-N*unit,y1-j*unit, x1+N*unit,y1-j*unit,fill="gray")
+
+#draw image of the unit square in plane 2
+if show_parallelograms==True:
+    my_canvas.create_polygon(x2,y2,x2+unit*B[0,0],y2-unit*B[1,0],\
+        x2+unit*(B[0,0]+B[0,1]),y2-unit*(B[1,0]+B[1,1]),x2+unit*B[0,1],y2-unit*B[1,1],\
+            fill="orange",outline="orange")
 
 #draw x-axis in plane 2
 my_canvas.create_line(x2-N*unit,y2, x2+N*unit,y2, arrow=LAST,width=1.5)
