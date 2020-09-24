@@ -1,6 +1,6 @@
 from tkinter import *
 from sympy import Matrix
-from math import floor
+from math import floor,ceil
 import os
 
 root = Tk()
@@ -26,7 +26,7 @@ B=Matrix([[1,1],\
           [1,0]])
 
 draw_chessboard=False
-B_colored=True
+B_colored=False
 
 B_inv=B.inv()
 
@@ -130,6 +130,10 @@ my_image=my_canvas.create_image(x1,y1,image=img1)
 #create the point Bv
 img2=PhotoImage(file="Bv_trans.png")
 my_image2=my_canvas.create_image(x2,y2,image=img2)
+
+#draw the mapping arrow
+my_canvas.create_line(x1+ceil(N)*unit,y1-unit,(x1+x2)//2,y1-(3*unit)//2,x2-ceil(N)*unit,y2-unit,\
+    smooth=True,arrow=LAST,arrowshape=(8,10,5),width=1.2)
 
 def get_v_coord():
     pass
