@@ -21,7 +21,11 @@ my_canvas.pack(pady=20)
 #          [1,1]])
 #B=A-Matrix.eye(2)
 
-B=Matrix([[1,1],[1,0]])
+B=Matrix([[1,1],\
+          [1,0]])
+
+draw_chessboard=False
+
 B_inv=B.inv()
 
 
@@ -65,6 +69,17 @@ my_canvas.create_line(x1,y1, x1+unit,y1, arrow=LAST,arrowshape=(8,10,6),\
 #draw e_y in plane 1
 my_canvas.create_line(x1,y1, x1,y1-unit, arrow=LAST,arrowshape=(8,10,6),\
                       fill="blue",width=3)
+
+#draw chessboard
+if draw_chessboard==True:
+    for i in range(-floor(N),floor(N)+1):
+        for j in range(-floor(N),floor(N)+1):
+            if (i+j)%2 == 0:
+                my_canvas.create_oval(int(x2+i*unit-0.15*unit),int(y2+j*unit-0.15*unit),\
+                    int(x2+i*unit+0.15*unit),int(y2+j*unit+0.15*unit),fill="black")
+            else:
+                my_canvas.create_oval(int(x2+i*unit-0.15*unit),int(y2+j*unit-0.15*unit),\
+                    int(x2+i*unit+0.15*unit),int(y2+j*unit+0.15*unit),fill="white")
 
 #draw Be_x in plane 2
 my_canvas.create_line(x2,y2, x2+unit*B[0,0],y2-unit*B[1,0], arrow=LAST,arrowshape=(8,10,6),\
