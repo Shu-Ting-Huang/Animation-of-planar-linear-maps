@@ -26,6 +26,7 @@ B=Matrix([[1,1],\
           [1,0]])
 
 draw_chessboard=False
+B_colored=True
 
 B_inv=B.inv()
 
@@ -36,14 +37,20 @@ unit=50
 N=4.5 #how far we go away from origin, both vertically and horizontally
 
 #write down the matrix B
+if B_colored==True:
+    RED="\\color{red}"
+    BLUE="\\color{blue}"
+else:
+    RED=BLUE=""
 latex_content="""\\documentclass[border=2pt]{standalone}
 \\usepackage{amsmath}
+\\usepackage{color}
 \\begin{document}
 $
 B=
 \\begin{pmatrix}
 """
-latex_content += str(B[0,0])+"&"+str(B[0,1])+"\\\\\n"+str(B[1,0])+"&"+str(B[1,1])
+latex_content += RED+str(B[0,0])+"&"+BLUE+str(B[0,1])+"\\\\\n"+RED+str(B[1,0])+"&"+BLUE+str(B[1,1])
 latex_content += """
 \\end{pmatrix}
 $
@@ -51,7 +58,6 @@ $
 f=open("matrix_B.tex","w")
 f.write(latex_content)
 f.close()
-
 os.system("pdflatex matrix_B.tex")
 os.system("pdftoppm matrix_B.pdf matrix_B -png")
 os.remove("matrix_B.aux")
