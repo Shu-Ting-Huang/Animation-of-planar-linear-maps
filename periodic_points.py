@@ -1,6 +1,7 @@
 from tkinter import *
 from sympy import Matrix
 from math import floor
+import os
 
 root = Tk()
 root.title('Periodic Points')
@@ -33,6 +34,33 @@ B_inv=B.inv()
 (x2,y2)=(950,250)
 unit=50
 N=4.5 #how far we go away from origin, both vertically and horizontally
+
+#write down the matrix B
+latex_content="""\\documentclass[border=2pt]{standalone}
+\\usepackage{amsmath}
+\\begin{document}
+$
+B=
+\\begin{pmatrix}
+"""
+latex_content += str(B[0,0])+"&"+str(B[0,1])+"\\\\\n"+str(B[1,0])+"&"+str(B[1,1])
+latex_content += """
+\\end{pmatrix}
+$
+\\end{document}"""
+f=open("matrix_B.tex","w")
+f.write(latex_content)
+f.close()
+
+os.system("pdflatex matrix_B.tex")
+os.system("pdftoppm matrix_B.pdf matrix_B -png")
+os.remove("matrix_B.aux")
+os.remove("matrix_B.log")
+os.remove("matrix_B.pdf")
+os.remove("matrix_B.tex")
+B_img=PhotoImage(file="matrix_B-1.png")
+my_canvas.create_image(int((x1+x2)/2),h//4,image=B_img)
+os.remove("matrix_B-1.png")
 
 
 #draw x-axis in plane 1
