@@ -17,10 +17,11 @@ my_canvas = Canvas(root,width=w,height=h,bg="white")
 my_canvas.pack(pady=20)
 
 
-A=Matrix([[2,2],\
-          [1,-2]])
+#A=Matrix([[2,1],\
+#          [1,1]])
+#B=A-Matrix.eye(2)
 
-B=A-Matrix.eye(2)
+B=Matrix([[1,1],[1,0]])
 B_inv=B.inv()
 
 
