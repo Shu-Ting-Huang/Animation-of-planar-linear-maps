@@ -143,7 +143,9 @@ img2=PhotoImage(file="Bv_trans.png")
 my_image2=my_canvas.create_image(x2,y2,image=img2)
 
 #draw the mapping arrow
-my_canvas.create_line(x1+ceil(N)*unit,y1-unit,(x1+x2)//2,y1-(3*unit)//2,x2-ceil(N)*unit,y2-unit,\
+##my_canvas.create_line(x1+ceil(N)*unit,y1-unit,(x1+x2)//2,y1-(3*unit)//2,x2-ceil(N)*unit,y2-unit,\
+##    smooth=True,arrow=LAST,arrowshape=(8,10,5),width=1.2)
+my_canvas.create_line(x1+250,y1-50,(x1+x2)//2,y1-75,x2-250,y2-50,\
     smooth=True,arrow=LAST,arrowshape=(8,10,5),width=1.2)
 
 def get_v_coord():
