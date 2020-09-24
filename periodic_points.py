@@ -27,6 +27,7 @@ B=Matrix([[1,1],\
 
 draw_chessboard=False
 B_colored=False
+show_cursor_coord=False
 
 B_inv=B.inv()
 
@@ -187,7 +188,8 @@ def show_coord(e):
     
     
 my_label = Label(root,text="")
-my_label.pack(pady=20)
+if show_cursor_coord==True:
+    my_label.pack(pady=20)
 
 
 my_canvas.bind("<B1-Motion>",move)
