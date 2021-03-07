@@ -4,7 +4,7 @@ from math import floor,ceil
 import os
 
 root = Tk()
-root.title('Fixed Points on Torus')
+root.title('Animation of Planar Linear Maps')
 #root.geometry("800x1080")
 root.state('zoomed') #maximize the window
 
