@@ -135,11 +135,11 @@ my_canvas.create_line(x2,y2, x2+unit*B[0,1],y2-unit*B[1,1], arrow=LAST,arrowshap
                       fill="blue",width=3)
 
 #create the point v
-img1=PhotoImage(file="v_trans.png")
+img1=PhotoImage(file="v.png")
 my_image=my_canvas.create_image(x1,y1,image=img1)
 
 #create the point Bv
-img2=PhotoImage(file="Bv_trans.png")
+img2=PhotoImage(file="Bv.png")
 my_image2=my_canvas.create_image(x2,y2,image=img2)
 
 #draw the mapping arrow
@@ -158,11 +158,11 @@ def move_v(e):
     #my_circle = my_canvas.create_oval(e.x,e.y,e.x+10,e.y+10,fill="red")
 
     global img1
-    img1=PhotoImage(file="v_trans.png")
+    img1=PhotoImage(file="v.png")
     my_image=my_canvas.create_image(e.x,e.y,image=img1)
 
     global img2
-    img2=PhotoImage(file="Bv_trans.png")
+    img2=PhotoImage(file="Bv.png")
     my_image2=my_canvas.create_image(x2+B[0,0]*(e.x-x1)+B[0,1]*(-e.y+y1),\
                                      y2-B[1,0]*(e.x-x1)-B[1,1]*(-e.y+y1),image=img2)
 
@@ -176,11 +176,11 @@ def move_Bv(e):
     #my_circle = my_canvas.create_oval(e.x,e.y,e.x+10,e.y+10,fill="red")
 
     global img2
-    img2=PhotoImage(file="Bv_trans.png")
+    img2=PhotoImage(file="Bv.png")
     my_image=my_canvas.create_image(e.x,e.y,image=img2)
 
     global img1
-    img1=PhotoImage(file="v_trans.png")
+    img1=PhotoImage(file="v.png")
     
     my_image2=my_canvas.create_image(int(x1+B_inv[0,0]*(e.x-x2)+B_inv[0,1]*(-e.y+y2)),\
                                      int(y1-B_inv[1,0]*(e.x-x2)-B_inv[1,1]*(-e.y+y2)),\
